@@ -1,0 +1,41 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+input{
+    padding: 10px;
+    width: 200px;
+    margin: 50px;
+    outline: none;
+}
+.add{
+    background: transparent;
+    border: 1px solid #737373;
+    padding: 10px;
+    cursor: pointer;
+}
+.wrab-items{
+    width: 330px;
+}
+.wrab-items li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background: #d9d9d9;
+    align-items: center;
+    border: 1px #a4a4a4 solid;
+    padding : 10px;
+}
+.wrab-items button{
+    background: transparent;
+    border: 1px solid #737373;
+    padding: 10px;
+    cursor: pointer;
+    border-left:1px solid  #a4a4a4;
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+} 
+li p{
+    overflow-wrap: break-word;
+    width: 235px;
+}
