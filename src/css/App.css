@@ -39,3 +39,9 @@ li p{
     overflow-wrap: break-word;
     width: 235px;
 }
+.done{
+    background: #9dedff !important;
+}
+.notDone{
+    background-color: black ;
+}
