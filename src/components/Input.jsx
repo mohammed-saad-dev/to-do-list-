@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 
 const Input = () => {
+    window.localStorage.setItem('todos',[])
     const [val, setVal] = useState(""); // input value 
-    const [item, setItem] = useState([ "osd drake"]); // items i want to do 
+    const [item, setItem] = useState([]); // items i want to do 
+
     const element = document.getElementsByTagName("li");
-    function Delet(index){
+    function Delet(index) {
         const newItem = [...item];
         newItem.splice(index, 1);
         setItem(newItem)
@@ -19,12 +21,10 @@ const Input = () => {
         }
     }
 
-    function get(index){
-        // console.log(item[index])
-        
-        element[index].className = element[index].className === "notDone" ? "done" : "notDone";
-    }
-    
+    let get = (index) => element[index].className = element[index].className === "notDone" ? "done" : "notDone"; 
+    let clear = () => setItem([])
+    let add = () => val.trim().length === 0 ? null : (setItem([...item, val],setVal("")))
+
     return (
         <div>
             <div>
@@ -34,11 +34,12 @@ const Input = () => {
                 value={val} placeholder='what about today ?' type="text" className='input'/>
 
                 <button 
-                onClick={() => val.trim().length === 0 ? null : (setItem([...item, val],setVal("")))} 
-                className='add'>Add</button>
+                onClick={add} 
+                className='add'>Add
+                </button>
+
                 <button 
-                style={{marginLeft:"10px"}} 
-                className='add' onClick={() => setItem([])}>clear
+                className='add clear' onClick={clear}>clear
                 </button>
             </div>
 
@@ -46,12 +47,14 @@ const Input = () => {
                 <ul>
                     {item.map((i,index) => {
                         return(
+                                
                                 <div key={index} className='wrab-items'>
                                     <li  className="notDone" key={index}>
                                         <p>{i}</p>
                                         <button onClick={() =>Delet(index)} >Delete</button>
-                                        <button  onClick={() => get(index)}  >Done</button></li> 
+                                        <button onClick={() => get(index)}  >Done</button></li> 
                                 </div>
+                                
                                 )
                     })}
                 </ul>

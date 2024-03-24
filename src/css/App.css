@@ -45,3 +45,6 @@ li p{
 .notDone{
     background-color: black ;
 }
+.clear{
+    margin-left: 10px
+}
